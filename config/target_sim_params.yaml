@@ -1,0 +1,26 @@
+# target_flight_sim 설정
+#
+# 아래 값만 바꿔서 표적 기체의 출발점/목표점/속도/도착 후 동작을 지정하면 됩니다.
+
+target_sim:
+  ros__parameters:
+    update_hz: 10.0          # 위치/속도 발행 주기 [Hz]
+
+    # 출발점
+    start_lat_deg: 37.0084494
+    start_lon_deg: 127.9466327
+    start_alt_m: 30.0
+
+    # 목표점
+    goal_lat_deg: 37.0040055
+    goal_lon_deg: 127.9215439
+    goal_alt_m: 30.0
+
+    speed_mps: 12.5          #비행 속도 [m/s]
+
+    # 목표점 도착 후 동작
+    #   hold    : 목표점에서 정지(계속 위치/속도 발행, 속도는 0)
+    #   loop    : loop_pause_s 만큼 대기 후 출발점으로 되돌아가 재출발
+    #   reverse : 도착 즉시 반대 방향(목표→출발)으로 왕복 비행
+    on_arrival: 'hold'
+    loop_pause_s: 3.0
